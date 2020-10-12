@@ -17,7 +17,7 @@ export default function GameDetails() {
 	useEffect(() => {
 		fetch(url)
 			.then(response => response.json())
-			.then(json => setDetail(json))
+			.then(json => {setDetail(json);console.log(json);})
 			.catch(error => console.log(error))
 			.finally(() => setLoading(false));
 	}, [url]);
@@ -27,22 +27,26 @@ export default function GameDetails() {
 	}
 
 	return (
-		<Row>
-			<Col sm={9} md={9}className="detail-image">
-				<Image src={detail.background_image} fluid />
-			</Col>
-			<Col sm={3} md={3}>
-				<h1>{detail.title}</h1>
-				<p>
-					<b>Id:</b> {detail.id}
-				</p>
-				<p>
-					<b>Released:</b> {detail.released}
-				</p>
-				<p>
-					<b>Rating:</b> {detail.rating}
-				</p>
-			</Col>
-		</Row>
+		<>
+			<Row>
+				<Col><h1>{detail.name}</h1></Col>
+			</Row>
+			<Row className='mt-5'>
+				<Col className="detail-image">
+					<Image src={detail.background_image} thumbnail fluid />
+				</Col>
+			</Row>
+			<Row className='mt-5'>
+				<Col className='text-left' dangerouslySetInnerHTML={ {__html: detail.description} } />
+			</Row>
+			<Row className='mt-5 mb-5'>
+				<Col lg={6}>
+					<p><b>Released:</b> {detail.released}</p>
+				</Col>
+				<Col lg={6}>
+					<p><a href={detail.website} rel="noreferrer noopener" target="_blank">Go to website</a></p>
+				</Col>
+			</Row>
+		</>
 	);
 }

@@ -55,7 +55,7 @@ export default function GamesList() {
                     } = games;
 
                     return (
-                        <Col sm={6} md={6} key={id}>
+                        <Col md={12} lg={6} key={id}>
                             <GamesItem 
                                 id={id}
                                 title={name} 

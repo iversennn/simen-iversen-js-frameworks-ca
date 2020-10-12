@@ -17,7 +17,7 @@ export default function Layout() {
         <Router>
             <Navbar bg='dark' variant='dark' expand='lg'>
                 <NavLink to='/' exact>
-                    <Navbar.Brand>Noroff MA3</Navbar.Brand>
+                    <Navbar.Brand>Noroff CA</Navbar.Brand>
                 </NavLink>
                 <Navbar.Toggle aria-controls='basic-navbar-nav' />
                 <Navbar.Collapse id='basic-navbar-nav'>

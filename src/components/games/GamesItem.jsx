@@ -9,14 +9,14 @@ export default function GameItem({ id, title, image, rating, released }) {
         <Card className='gameCard' bg='secondary' text='dark'>
             <Card.Img variant='top' src={image} /*style={{height: "100%"}}*/ />
             <Card.ImgOverlay>
-                <Card.Title>{title}</Card.Title>
+                <Card.Title><h1>{title}</h1></Card.Title>
                 <Card.Text>
-                    <li>{rating}</li>
-                    <li>{released}</li>
+                        <li>{released}</li>
+                        <li>Rating: {rating}</li>    
                 </Card.Text>
                 <Link to={"game/" + id}>
 					<Button variant="secondary" block>
-						View
+						More details
 					</Button>
 				</Link>
             </Card.ImgOverlay>
@@ -25,6 +25,7 @@ export default function GameItem({ id, title, image, rating, released }) {
 }
 
 GameItem.propTypes = {
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,

@@ -1,14 +1,61 @@
+$borderRadius: 4px;
+$myBorder: 1px solid rgb(89, 89, 89);
+$cardTextBackground:  rgba(104, 104, 104, 0.534);
+
 .App {
   text-align: center;
 }
 
 .gameCard{
   margin: 20px 0px;
-  height: 300px;
+  height: 360px;
+  border: $myBorder;
+  .card-img-overlay{
+    padding: 0;
+  }
+  img{
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-bottom-left-radius: $borderRadius;
+    border-bottom-right-radius: $borderRadius;
+  }
+  p{
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    border-left: $myBorder;
+    border-bottom: $myBorder;
+    background-color: $cardTextBackground;
+    padding: 2px;
+    padding-right: 4px;
+    border-top-right-radius: $borderRadius;
+    border-bottom-left-radius: $borderRadius;
+  }
+  li{
+    color: white;
+    text-align: right;
+    list-style-type: none;
+  }
+  h1{
+    color: white;
+    box-shadow: 0px 0px 3px 1px  rgba(255, 255, 255, 0.522);
+    position: absolute;
+    bottom: 70px;
+    left: 5%;
+    width: 90%;
+    border-radius: 5px;
+    background-color: $cardTextBackground;
+    padding-bottom: 3px;
+    }
+  button{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0;
+    height: 50px;
+    border-bottom-left-radius: $borderRadius;
+    border-bottom-right-radius: $borderRadius;
+  }
 }
 
-img{
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-}
