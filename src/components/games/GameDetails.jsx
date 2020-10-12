@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Spinner from "react-bootstrap/Spinner";
-import { useParams } from "react-router-dom";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
-import { BASE_URL } from "../../constants/api";
+import React, { useState, useEffect } from 'react';
+import Spinner from 'react-bootstrap/Spinner';
+import { useParams } from 'react-router-dom';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
+import { BASE_URL } from '../../constants/api';
 
 export default function GameDetails() {
 	const [detail, setDetail] = useState(null);
@@ -23,7 +23,7 @@ export default function GameDetails() {
 	}, [url]);
 
 	if (loading) {
-		return <Spinner animation="border" className="spinner" />;
+		return <Spinner animation='border' className='spinner' />;
 	}
 
 	return (
@@ -32,7 +32,7 @@ export default function GameDetails() {
 				<Col><h1>{detail.name}</h1></Col>
 			</Row>
 			<Row className='mt-5'>
-				<Col className="detail-image">
+				<Col className='detail-image'>
 					<Image src={detail.background_image} thumbnail fluid />
 				</Col>
 			</Row>
@@ -44,7 +44,7 @@ export default function GameDetails() {
 					<p><b>Released:</b> {detail.released}</p>
 				</Col>
 				<Col lg={6}>
-					<p><a href={detail.website} rel="noreferrer noopener" target="_blank">Go to website</a></p>
+					<p><a href={detail.website} rel='noreferrer noopener' target='_blank'>Go to website</a></p>
 				</Col>
 			</Row>
 		</>

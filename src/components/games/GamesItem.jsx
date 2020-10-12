@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import Button from "react-bootstrap/Button";
+import Button from 'react-bootstrap/Button';
 
 export default function GameItem({ id, title, image, rating, released }) {
 	return (
         <Card className='gameCard' bg='secondary' text='dark'>
-            <Card.Img variant='top' src={image} /*style={{height: "100%"}}*/ />
+            <Card.Img variant='top' src={image} />
             <Card.ImgOverlay>
                 <Card.Title><h1>{title}</h1></Card.Title>
                 <Card.Text>
                         <li>{released}</li>
                         <li>Rating: {rating}</li>    
                 </Card.Text>
-                <Link to={"game/" + id}>
-					<Button variant="secondary" block>
+                <Link to={'game/' + id}>
+					<Button variant='secondary' block>
 						More details
 					</Button>
 				</Link>
