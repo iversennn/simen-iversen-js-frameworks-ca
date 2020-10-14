@@ -17,7 +17,7 @@ export default function GamesList() {
             .then(json => {
                 setGames(json.results);
                 setFilteredGames(json.results);
-                console.log(json.results);
+                // console.log(json.results);
             })
             .catch(error => console.log(error))
             .finally(() => setLoading(false));

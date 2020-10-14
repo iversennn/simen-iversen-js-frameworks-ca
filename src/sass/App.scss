@@ -59,3 +59,23 @@ $cardTextBackground:  rgba(104, 104, 104, 0.534);
   }
 }
 
+form{
+  text-align: left;
+  .col textarea{
+    height: 300px;
+  }
+}
+
+.MuiButtonBase-root{
+  border: $myBorder !important;
+  border-radius: $borderRadius !important;
+  background-color: $cardTextBackground !important;
+  color: rgba(255, 255, 255, 0.987) !important;
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+}
+
+.MuiToggleButton-root.Mui-selected{
+  color: rgb(255, 204, 0) !important;
+}

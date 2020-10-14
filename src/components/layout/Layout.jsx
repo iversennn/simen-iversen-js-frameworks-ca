@@ -11,6 +11,7 @@ import Container from 'react-bootstrap/Container';
 import Home from '../home/Home';
 import Contact from '../contact/Contact';
 import GameDetails from '../games/GameDetails';
+import Favourites from '../favourites/favourites';
 
 export default function Layout() {
     return (
@@ -25,6 +26,9 @@ export default function Layout() {
                         <NavLink to='/' exact className='nav-link'>
                             Home
                         </NavLink>
+                        <NavLink to='/favourites' exact className='nav-link'>
+                            Favourites
+                        </NavLink>
                         <NavLink to='/contact' exact className='nav-link'>
                             Contact
                         </NavLink>
@@ -36,6 +40,7 @@ export default function Layout() {
                     <Route path='/' exact component={Home} />
                     <Route path='/contact' component={Contact} />
                     <Route path='/game/:id' component={GameDetails} />
+                    <Route path='/favourites' component={Favourites} />
                 </Switch>
             </Container>
         </Router>

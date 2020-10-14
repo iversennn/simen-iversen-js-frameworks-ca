@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import { BASE_URL } from '../../constants/api';
+import GameDetailsList from './GameDetailsList';
 
 export default function GameDetails() {
 	const [detail, setDetail] = useState(null);
@@ -17,7 +18,7 @@ export default function GameDetails() {
 	useEffect(() => {
 		fetch(url)
 			.then(response => response.json())
-			.then(json => {setDetail(json);console.log(json);})
+			.then(json => {setDetail(json);/*console.log(json);*/})
 			.catch(error => console.log(error))
 			.finally(() => setLoading(false));
 	}, [url]);
@@ -39,6 +40,9 @@ export default function GameDetails() {
 			<Row className='mt-5'>
 				<Col className='text-left' dangerouslySetInnerHTML={ {__html: detail.description} } />
 			</Row>
+			
+			<GameDetailsList genres={detail.genres} platforms={detail.platforms}/>
+
 			<Row className='mt-5 mb-5'>
 				<Col lg={6}>
 					<p><b>Released:</b> {detail.released}</p>
