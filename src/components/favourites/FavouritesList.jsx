@@ -1,91 +1,42 @@
 import React from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import FavouriteItem from './FavouriteItem';
 
 export default function FavouritesList(){
 
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+    while ( i-- ) {
+        values.push( JSON.parse(localStorage.getItem(keys[i])) );
+    }
     
-    const gamesArray = JSON.parse(localStorage.getItem(28));
-
-
-    console.log(gamesArray);
-
     return(
-        <h1>Fav</h1>
+        <>
+            <Row>
+                {values.map(games => {
+                    const { 
+                        id,
+                        title, 
+                        image, 
+                        rating,
+                        released
+                    } = games;
+
+                    return (
+                        <Col md={12} lg={6} key={id}>
+                            <FavouriteItem 
+                                id={id}
+                                title={title} 
+                                image={image}
+                                rating={rating}
+                                released={released} />
+                        </Col>
+                    );
+                })}
+            </Row>
+        </>
     )
 }
-
-// import React, { useState, useEffect } from 'react';
-// import Spinner from 'react-bootstrap/Spinner';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import FavouriteItem from './FavouriteItem';
-// import { BASE_URL } from '../../constants/api';
-// import Search from '../games/Search';
-
-// export default function GamesList() {
-
-//     const gamesArray = localStorage;
-
-//     console.log(gamesArray);
-
-//     const [games, setGames] = useState([]);
-//     const [filteredGames, setFilteredGames] = useState([]);
-//     const [loading, setLoading] = useState(true);
-    
-//     useEffect(() => {
-//         fetch(BASE_URL)
-//             .then(response => response.json())
-//             .then(json => {
-//                 setGames(json.results);
-//                 setFilteredGames(json.results);
-//                 // console.log(json.results);
-//             })
-//             .catch(error => console.log(error))
-//             .finally(() => setLoading(false));
-//     }, []);
-    
-//     const filterCards = function(e) {
-// 	    const searchValue = e.target.value.toLowerCase();
-// 	    const filteredArray = games.filter(function(game) {
-//             const lowerCaseName = game.name.toLowerCase();
-//             if (lowerCaseName.startsWith(searchValue)) {
-//                 return true;
-//             }
-//             return false;
-//         });
-    
-//         setFilteredGames(filteredArray);
-//     };
-    
-//     if (loading) {
-//         return <Spinner animation='border' className='spinner' />;
-//     }
-    
-//     return (
-//         <>
-//             <h1>Favourite Games</h1>
-//             <Search handleSearch={filterCards} />
-//             <Row>
-//                 {filteredGames.map(games => {
-//                     const { 
-//                         id,
-//                         name, 
-//                         background_image, 
-//                         rating,
-//                         released
-//                     } = games;
-
-//                     return (
-//                         <Col md={12} lg={6} key={id}>
-//                             <FavouriteItem 
-//                                 id={id}
-//                                 title={name} 
-//                                 image={background_image}
-//                                 rating={rating}
-//                                 released={released} />
-//                         </Col>
-//                     );
-//                 })}
-//             </Row>
-//         </>
-//     );
-// }
