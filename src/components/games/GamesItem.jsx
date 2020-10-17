@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import FavouriteButton from '../layout/FavouriteButton';
+import FavouriteButton from '../favourites/FavouriteButton';
 
 
 export default function GameItem({ id, title, image, rating, released }) {
