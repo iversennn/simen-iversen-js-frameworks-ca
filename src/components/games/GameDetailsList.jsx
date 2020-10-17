@@ -20,7 +20,22 @@ export default function GameDetailsList({genres, platforms}){
     )
 }
 
+// GameDetailsList.propTypes = {
+//     genres: PropTypes.arrayOf(PropTypes.object).isRequired,
+//     platforms: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   }
+
+const genreType = PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+});
+
+const platformType = PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+})
+
 GameDetailsList.propTypes = {
-    genres: PropTypes.arrayOf(PropTypes.object).isRequired,
-    platforms: PropTypes.arrayOf(PropTypes.object).isRequired,
-  }
+    platforms: PropTypes.arrayOf(platformType),
+    genres: PropTypes.arrayOf(genreType),
+}
