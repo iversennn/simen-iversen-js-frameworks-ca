@@ -61,6 +61,9 @@ $cardTextBackground:  rgba(104, 104, 104, 0.534);
 
 form{
   text-align: left;
+  label{
+    color: rgb(194, 194, 194);
+  }
   .col textarea{
     height: 300px;
   }
@@ -92,4 +95,8 @@ form{
   border-color: rgb(0, 67, 140);
   outline-color: initial;
   box-shadow: rgba(0, 98, 204, 0.25) 0px 0px 0px 0.2rem;
+}
+
+.bg-light {
+  background-color: rgb(27, 30, 31) !important;
 }
